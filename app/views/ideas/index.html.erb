@@ -1,0 +1,29 @@
+<h1>Filmy</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Jméno</th>
+      <th>Obsah</th>
+      <th>Obrázek</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ideas.each do |idea| %>
+      <tr>
+        <td><%= idea.name %></td>
+        <td><%= idea.description %></td>
+        <td><%= idea.picture %></td>
+        <td><%= link_to 'Ukázat', idea %></td>
+        <td><%= link_to 'Upravit', edit_idea_path(idea) %></td>
+        <td><%= link_to 'Smazat', idea, method: :delete, data: { confirm: 'Fakt jo?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Přidat film', new_idea_path %>
